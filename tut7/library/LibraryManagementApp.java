@@ -3,7 +3,7 @@ package tut7.library;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LibrabyManagementApp {
+public class LibraryManagementApp {
     public static void main(String[] args) {
         Person p1 = new Person("duong","duong@gmail.com");
         Person p2 = new Person("tuan","tuan@gmail.com");
@@ -26,7 +26,7 @@ public class LibrabyManagementApp {
         publishers.add(p3);
         publishers.add(p4);
         //Initialize books
-        Book b1 = new Book("12351","toan","it",authors,publishers,"vietnamese",300);
+        Book b1 = new Book("12351","toan","it",authors,publishers,Language.VIETNAMESE,300);
         //Print Book 1
         System.out.println("Information of book 1: " + b1);
 

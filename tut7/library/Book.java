@@ -10,26 +10,26 @@ import java.util.List;
         | - subject: String                                 |
         | - authors: List<Person>                           |
         | - publishers: List<Person>                        |
-        | - language: String                                |
+        | - language: Language                              |
         | - numberOfPages: int                              |
          ---------------------------------------------------
         | + Book(ISBN: String, title: String,               |
         |        subject: String, authors:                  |
         |        List<Person>, publishers:                  |
-        |        List<Person>, language: String,            |
+        |        List<Person>, language: Language,          |
         |        numberOfPages: int)                        |
         | + getISBN(): String                               |
         | + getTitle(): String                              |
         | + getSubject(): String                            |
         | + getAuthors(): List<Person>                      |
         | + getPublishers(): List<Person>                   |
-        | + getLanguage(): String                           |
+        | + getLanguage(): Language                         |
         | + getNumberOfPages(): int                         |
         | + setISBN(ISBN: String): void                     |
         | + setTitle(title: String): void                   |
         | + setAuthors(authors: List<Person>): void         |
         | + setPublishers(publishers: List<Person>): void   |
-        | + setLanguage(language: String): void             |
+        | + setLanguage(language: Language): void           |
         | + setNumberOfPages(numberOfPages: int): void      |
         | + toString(): String                              |
          ---------------------------------------------------
@@ -43,10 +43,10 @@ public class Book {
     private String subject;
     private List<Person> authors;
     private List<Person> publishers;
-    private String language;
+    private Language language;
     private int numberOfPages;
 
-    public Book(String ISBN, String title, String subject, List<Person> authors, List<Person> publishers, String language, int numberOfPages) {
+    public Book(String ISBN, String title, String subject, List<Person> authors, List<Person> publishers, Language language, int numberOfPages) {
         this.ISBN = ISBN;
         this.title = title;
         this.subject = subject;
@@ -81,7 +81,7 @@ public class Book {
         return numberOfPages;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
     }
 
@@ -113,7 +113,7 @@ public class Book {
         this.publishers = publishers;
     }
 
-    public void setLanguage(String language) {
+    public void setLanguage(Language language) {
         this.language = language;
     }
 
