@@ -23,12 +23,13 @@ package tut7.library;
 
 
 
+import tut5.Person;
+
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Catalog implements Search {
-    private String creationDate;
+    private final String creationDate;
     private int totalNumberOfBooks;
     private List<BookItem> books;
 
@@ -69,7 +70,7 @@ public class Catalog implements Search {
     }
 
     @Override
-    public List<BookItem> searchByAuthor(String author) {
+    public List<BookItem> searchByAuthor(tut7.library.Person author) {
         List<BookItem> result = new ArrayList<>();
         for (BookItem book : books) {
             if (book.getBook().getAuthors().contains(author)) {
@@ -78,6 +79,9 @@ public class Catalog implements Search {
         }
         return result;
     }
+
+
+
 
     @Override
     public List<BookItem> searchBySubject(String subject) {

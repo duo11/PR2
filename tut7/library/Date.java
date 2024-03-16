@@ -26,12 +26,14 @@ public class Date {
     private int year;
     public Date(String date){
 
-        if(isValidDate(date)){
-            this.date = date;
-            this.day = Integer.parseInt(date.substring(0,2));
-            this.month = Integer.parseInt(date.substring(3,5));
-            this.year = Integer.parseInt(date.substring(6,10));
+        if(!isValidDate(date)){
+            throw new IllegalArgumentException("Invalid day");
         }
+
+        this.date = date;
+        this.day = Integer.parseInt(date.substring(0,2));
+        this.month = Integer.parseInt(date.substring(3,5));
+        this.year = Integer.parseInt(date.substring(6,10));
 
 
 
@@ -49,6 +51,8 @@ public class Date {
             int month = Integer.parseInt(date.substring(3,5));
             int year = Integer.parseInt(date.substring(6,10));
 
+
+            //check leap year
             int dayOfFeb;
             if(isLeapYear(year)){
                 dayOfFeb = 29;
@@ -57,17 +61,18 @@ public class Date {
                 dayOfFeb = 28;
             }
 
-            if(month == 2 && day > dayOfFeb){
-                throw new IllegalArgumentException(month+ "/" + year + " just have " + dayOfFeb +" days");
+            //check day
+            switch (month){
+                case 1,3,5,7,8,10,12:
+                    return day <= 31;
+                case 4,6,9,11:
+                    return day <= 30;
+                case 2:
+                    return day <= dayOfFeb;
+                default:
+                    return false;
             }
 
-            if(month <= 12 && day <= 31){
-//                System.out.println("Set day " + date + " successfully");
-                return true;
-            }
-            else{
-                throw new IllegalArgumentException("Invalid day");
-            }
         }
         else{
             System.out.println("Can't set date. Wrong format (dd/mm/yyyy)");

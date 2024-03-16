@@ -44,6 +44,12 @@ public class Student {
 
 
     public Student(Integer studentID, String name, Date dataOfBirth) {
+        if(!isValidStudentID(studentID)){
+            throw new IllegalArgumentException("Invalid Id");
+        }
+        if(!isValidName(name)){
+            throw new IllegalArgumentException("Invalid name");
+        }
         this.studentID = studentID;
         this.name = name;
         this.dataOfBirth = dataOfBirth;
@@ -52,6 +58,17 @@ public class Student {
     }
 
     public Student(Integer studentID, String name, Date dataOfBirth,Double gpa) {
+
+        if(!isValidStudentID(studentID)){
+            throw new IllegalArgumentException("Invalid Id");
+        }
+        if(!isValidName(name)){
+            throw new IllegalArgumentException("Invalid name");
+        }
+        if(!isValidGpa(gpa)){
+            throw new IllegalArgumentException("Invalid GPA");
+        }
+
         this.studentID = studentID;
         this.name = name;
         this.dataOfBirth = dataOfBirth;
@@ -139,7 +156,6 @@ public class Student {
                 System.out.println("Name cannot exceed 50 characters");
                 return false;
             }
-
         }
         else{
             System.out.println("Wrong name format");

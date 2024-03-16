@@ -31,7 +31,7 @@ public class LibraryManagementApp {
         System.out.println("Information of book 1: " + b1);
 
         //Initialize a book item of book 1
-        BookItem bi1 = new BookItem(b1,"123798715",100,Format.MAGAZINE,BookItemStatus.AVAILABLE,new Date("29/02/2024"),new Date("10/01/2010"));
+        BookItem bi1 = new BookItem(b1,"123798715",100,Format.MAGAZINE,BookItemStatus.AVAILABLE,new Date("31/13/2024"),new Date("10/01/2010"));
         System.out.println("Information of book item of book 1: "+bi1);
 
         //Initialize a catalog
@@ -42,7 +42,7 @@ public class LibraryManagementApp {
         System.out.println("Information of catalog: " + c1);
 
         //Print books in catalog 1 that have author "duong"
-        System.out.println(c1.searchByAuthor("duong"));
+        System.out.println(c1.searchByAuthor(p1));
 
     }
 }

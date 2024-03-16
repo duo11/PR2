@@ -77,6 +77,9 @@ public class Course {
     }
 
     public void setCredit(int credit) {
+        if(credit < 0 || credit > 5) {
+            throw new IllegalArgumentException("Credit must be between 1 and 5");
+        }
         this.credit = credit;
     }
 
